@@ -12,3 +12,6 @@ cd legal-api
 
 npm install
 npm install express cors node-fetch@2 dotenv
+
+node server.js
+curl "http://localhost:3000/api/cases?search=employment"
