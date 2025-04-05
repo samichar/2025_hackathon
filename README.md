@@ -11,7 +11,7 @@ git clone https://github.com/yourusername/legal-api.git
 cd legal-api
 
 npm install
-npm install express cors node-fetch@2 dotenv
 
+# run these commands on 2 separate terminals to test:
 node server.js
-curl "http://localhost:3000/api/cases?search=employment"
+open lawyer_frontend.html

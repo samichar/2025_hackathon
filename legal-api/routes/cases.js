@@ -6,6 +6,7 @@ const router = express.Router();
 // Route to fetch legal cases
 router.get("/", async (req, res) => {
   const search = req.query.search || "contract";
+  console.log(`\x1b[36m[SEARCH LOG]\x1b[0m Received search term: ${search}`);
 
   try {
     const cases = await fetchCases(search);
