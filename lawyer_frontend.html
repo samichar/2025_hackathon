@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LARP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class ="logo">
+                <img src="LARP_logo.png" alt="Logo" style="width:100px;height:100px;">
+            </div>
+            <div class="topnav">
+                <a class="active" href="lawyer_frontend.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class = "callout">
+            <div class="callout-header">Want to take your lawyer skills to the next level?</div>
+            <span class = "closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <div class = "callout-container">
+                <p>Join our active 
+                    <a href="roleplay">roleplaying</a>
+                community!
+                </p>
+            </div>
+        </div>
+
+    </header>
+    <main>
+        <div class = "main-statement">
+            <h1>Your main source for everything lawyer related.</h1>
+        </div>
+        <div class = "main-container">
+            <div class="courts">
+                <h1>Search for Courts</h1>
+                <h2>Find information about specific courts!</h2>
+                <div id="courtResults">
+                    <div class="search-container">
+                        <form id="courtSearchForm">
+                            <input type="text" id="courtSearchInput" placeholder="Search for courts..." name="search">
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="cases">
+                <h1>Learn about specific court cases.</h1>
+                <h2>Click the button below to view recent court cases!</h2>
+                <div id="caseResults">
+                    <button id="showCasesButton">Show Recent Court Cases</button>
+                </div>
+            </div>
+            <div class = "lawyers">
+                <h1>Learn about important lawyers.</h1>
+                <h2>Lawyer #1</h2>
+                <h2>Lawyer #2</h2>
+                <h2>Lawyer #3</h2>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <p>@2025 LARP. All rights reserved. :P</p>
+    </footer>
+</body>
+
+<script>
+    // Handle the "Show Recent Court Cases" button click
+    document.getElementById("showCasesButton").addEventListener("click", () => {
+        // Redirect to the new page
+        window.location.href = "recent_cases.html";
+    });
+</script>
+
+<script>
+    // Handle the court search form submission
+    document.getElementById("courtSearchForm").addEventListener("submit", async (event) => {
+        event.preventDefault(); // Prevent the form from reloading the page
+
+        const searchInput = document.getElementById("courtSearchInput").value;
+        const courtResults = document.getElementById("courtResults");
+
+        // Clear previous results
+        courtResults.innerHTML = "<p>Loading...</p>";
+
+        try {
+            // Fetch data from the API
+            const response = await fetch(`http://localhost:3000/api/cases/courts`);
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
+            }
+
+            const courts = await response.json();
+
+            // Filter courts based on the search input
+            const filteredCourts = courts.filter(court =>
+                court.full_name.toLowerCase().includes(searchInput.toLowerCase()) ||
+                court.short_name.toLowerCase().includes(searchInput.toLowerCase())
+            );
+
+            // Display the results
+            if (filteredCourts.length === 0) {
+                courtResults.innerHTML = "<p>No courts found. Try a different search term.</p>";
+            } else {
+                courtResults.innerHTML = ""; // Clear the loading message
+                filteredCourts.forEach((court) => {
+                    const courtDiv = document.createElement("div");
+                    courtDiv.classList.add("court-item");
+                    courtDiv.innerHTML = `
+                        <h3>${court.full_name}</h3>
+                        <p><strong>Short Name:</strong> ${court.short_name}</p>
+                        <p><strong>Jurisdiction:</strong> ${court.jurisdiction}</p>
+                        <a href="${court.url}" target="_blank">Visit Court Website</a>
+                        <hr />
+                    `;
+                    courtResults.appendChild(courtDiv);
+                });
+            }
+        } catch (error) {
+            console.error("Error fetching courts:", error);
+            courtResults.innerHTML = "<p>Error fetching courts. Please try again later.</p>";
+        }
+    });
+</script>
+
+</html>

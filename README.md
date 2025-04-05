@@ -1,33 +1,16 @@
 # 2025_hackathon
+# 🧠 Legal Case API
 
-How to import fonts into HTML/CSS:
+This is a simple Express backend that fetches legal case data from the CourtListener API and returns simplified results for a frontend app.
 
-1) Download font and extract it and add it to whatever branch you are using.
+## 🚀 How to Run
 
-   - Here is Press Start 2P: https://www.fontspace.com/press-start-2p-font-f11591
+### 1. Clone the repo
+git clone https://github.com/yourusername/legal-api.git
+cd legal-api
 
-2) In CSS file, add this ...
+npm install
 
-@font-face {
-
-    font-family: 'Press Start 2P';
-   
-    src: url('/press-start-2p-font/PressStart2P-vaV7.ttf') format('truetype');
-   
-    font-weight: normal; // This can be changed depending on style.
-   
-    font-style: normal; // ^^
-   
-}
-
-... where the font family is the name of whatever font and the source url is the path to the font.
-
-3) In CSS file, wherever you want the text to be the font, do this ...
-
-.header-statement {
-
-    font-family: 'Press Start 2P';
-   
-}
-
-... (this is an example). This should work for any font you download (hopefully, just make sure it's HTML compatible if it doesn't work).
+# run these commands on 2 separate terminals to test:
+node server.js
+open lawyer_frontend.html
