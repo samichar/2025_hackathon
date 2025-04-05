@@ -1,5 +1,5 @@
 import express from "express";
-import fetchCases from "../utils/fetchCases.js";
+import { fetchCases, fetchCourts } from "../utils/fetchCases.js";
 
 const router = express.Router();
 
@@ -14,6 +14,19 @@ router.get("/", async (req, res) => {
   } catch (err) {
     console.error("Error in /api/cases route:", err);
     res.status(500).json({ error: "Failed to fetch case data" });
+  }
+});
+
+// Route to fetch courts
+router.get("/courts", async (req, res) => {
+  console.log("[COURTS LOG] Fetching courts data");
+
+  try {
+    const courts = await fetchCourts();
+    res.json(courts);
+  } catch (err) {
+    console.error("Error in /api/cases/courts route:", err);
+    res.status(500).json({ error: "Failed to fetch court data" });
   }
 });
 
