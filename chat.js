@@ -215,8 +215,12 @@ function joinChatroom(chatroom) {
     `;
 
     setTimeout(() => {
-        fetch_messages();
-        main();
+        fetch_messages(); // fetch initial messages once
+        main();           // reinitialize chat box & listeners
+
+        // 🔁 Restart message polling
+        if (fetchInterval) clearInterval(fetchInterval);
+        fetchInterval = setInterval(fetch_messages, 500);
     }, 50);
 }
 
@@ -361,6 +365,7 @@ function main() {
     }
 
     chat_text.focus(); //automatically makes you be able to write stuff 
+    setInterval(fetch_messages, 500);
 }
 
 window.onload = () => {
