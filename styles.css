@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
     font-family: 'Libre Baskerville', 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
     color: #fff; 
-    background-color: #03213e;
+    background-color: #e4ac6a;
+
 }
 
 main {
@@ -13,7 +15,7 @@ main {
     padding: 1rem;
 }
 
-@font-face {
+/* @font-face {
     font-family: 'Press Start 2P';
     src: url('/font/press-start-2p-font/PressStart2P-vaV7.ttf') format('truetype');
     font-weight: normal;
@@ -32,7 +34,7 @@ main {
     src: url('font/derivia/Derivia-Regular.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
-}
+} */
 
 /* HEADER AND FOOTER */
 .header-container {
@@ -40,7 +42,7 @@ main {
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
-    background-color: #814d4d;
+    background-color: #03213e;
     gap: 1rem;
     position: fixed;
     top: 0;
@@ -49,14 +51,14 @@ main {
 }
 
 .logo img {
-    max-height: px;
+    /* max-height: ; */
     height: auto;
-    width: auto;
+    width: 400px;
 }
 
 footer {
     font: 'Libre Baskerville', 'Open Sans', sans-serif;
-    background-color:  #814d4d;
+    background-color: #03213e;
     color: #e4ac6a;
     text-align: center;
     padding: 10px;
@@ -125,8 +127,8 @@ footer {
     position: fixed;
     bottom: 50px;
     right: 20px;
-    max-width: 300px;
-    background-color: #ffcc00; 
+    max-width: 350px;
+    background-color: #814d4d; 
     border: 4px solid #333; 
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
@@ -138,11 +140,11 @@ footer {
 }
 
 .callout-header {
-    font-size: .5rem;
+    font-size: .75rem;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #07477b;
-    text-shadow: 1px 1px #fff;
+    color: white;
+    /* text-shadow: 1px 1px #fff; */
     font-family: 'Press Start 2P', Arial, sans-serif; 
 }
 
@@ -151,22 +153,10 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: .45rem;
+    font-size: .65rem;
 }
 
-.closebtn {
-    color: #ff0000;
-    float: right;
-    font-size: px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s ease; 
-}
 
-.closebtn:hover {
-    transform: scale(1.2); 
-    color: #333; 
-}
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
@@ -184,17 +174,17 @@ footer {
 .main-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     padding: 1rem;
-    
     gap: 1rem;
     flex-wrap: wrap;
 }
 
 .main-statement {
     font-family: 'Libre Baskerville', 'Open Sans', sans-serif;
-    text-shadow: 2px 2px rgba(199, 189, 189, 0.3);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
     text-align: center;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  */
 }
 
 .main-statement h1 {
@@ -207,26 +197,48 @@ footer {
 .main-container h1 {
     font-family: 'Libre Baskerville', 'Open Sans', sans-serif;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    font-size: 1.5rem;
+}
+
+.main-container h2 {
+    font-family: 'Monseratt', sans-serif;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    font-size: 1rem;
 }
 
 .main-container > div {
+    display: flex;
     flex: 1;
     min-width: 300px;
     max-width: 400px;
+    height: 300px;
     padding: 1rem;
     /* border-radius: 10px; */
     /* border: 4px solid #ffcc00; */
-    background-color: #814d4d;
+    background-color: #03213e;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
     text-align: center;
     color: #e4ac6a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0;
+    margin: 0;
+}
+
+.scale-image, .gavel-image, .lawyer-image {
+    width: 80px;
+    padding: 0;
+    margin-bottom: 0;
 }
 
 .contact-main {
     font-family: 'Libre Baskerville', 'Open Sans', sans-serif;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
     text-align: left;
-    color: red;
+    color: black;
     padding: 1rem;
 }
 
@@ -243,27 +255,37 @@ footer {
     padding: 1rem;
     gap: 1rem;
     flex-wrap: wrap;
+    /* margin-top: 20px; */
 }
 
 .contact-box {
     display: flex;
     align-items: center; 
-    gap: 1rem; 
-    border: 2px solid white;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem; 
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    /* border: 2px solid white; */
     /* border-radius: 10px;  */
     padding: 1rem;
-    background-color: #333;
+    /* background-color: #333; */
     color: #fff; 
+    background-color: #03213e;
     width: 80%; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     align-items: center; 
+    font-size: 1rem;
+    overflow: hidden;
 }
 
 .about-main {
     font-family: 'Libre Baskerville', 'Open Sans', sans-serif;
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    /* text-shadow: 2px 2px rgba(0, 0, 0, 0.3); */
     text-align: left;
-    color: red;
+    color: black;
+    /* text-shadow: 2px 2px rgba(0, 0, 0, 0.3); */
 }
 
 .about-main h1 {
@@ -307,6 +329,7 @@ footer {
 
 #caseResults {
     margin-top: 20px;
+    margin-left: 20px;
 }
 
 .case-item {
@@ -315,6 +338,7 @@ footer {
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
+    color: black;
 }
 
 .case-item h3 {
@@ -336,9 +360,9 @@ footer {
 
 button {
     font-family: 'Libre Baskerville', 'Open Sans', sans-serif;
-    background-color: #ff5733;
+    background-color: #814d4d;
     color: #fff;
-    border: 3px solid #333;
+    border: 1px solid white;
     /* border-radius: 5px; */
     /* padding: 10px 20px; */
     cursor: pointer;
@@ -347,7 +371,7 @@ button {
 }
 
 button:hover {
-    background-color: #c70039;
+    background-color: #482b2b;
     transform: scale(1.1); 
 }
 
