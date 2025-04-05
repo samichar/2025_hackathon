@@ -92,10 +92,10 @@ function joinChatroom(chatroom) {
             left: 7.5%;
             width: 11.74%;
             height: 42.87%;
-            background: rgba(255, 255, 255, 0.2);
+            background: transparent;
             border: none;
             cursor: pointer;
-            opacity: 1;
+            opacity: 0;
             z-index: 10;
         "></button>
 
@@ -106,10 +106,10 @@ function joinChatroom(chatroom) {
             left: 26%;
             width: 11.74%;
             height: 42.87%;
-            background: rgba(255, 255, 255, 0.2);
+            background: transparent;
             border: none;
             cursor: pointer;
-            opacity: 1;
+            opacity: 0;
             z-index: 10;
         "></button>
 
@@ -120,10 +120,10 @@ function joinChatroom(chatroom) {
             left: 44%;
             width: 11.74%;
             height: 42.87%;
-            background: rgba(255, 255, 255, 0.2);
+            background: transparent;
             border: none;
             cursor: pointer;
-            opacity: 1;
+            opacity: 0;
             z-index: 10;
         "></button>
 
@@ -134,10 +134,10 @@ function joinChatroom(chatroom) {
             left: 58.5%;
             width: 19.57%;
             height: 44.83%;
-            background: rgba(255, 255, 255, 0.2);
+            background: transparent;
             border: none;
             cursor: pointer;
-            opacity: 1;
+            opacity: 0;
             z-index: 10;
         "></button>
 
@@ -148,10 +148,10 @@ function joinChatroom(chatroom) {
             left: 80.25%;
             width: 11.74%;
             height: 42.2%;
-            background: rgba(255, 255, 255, 0.2);
+            background: transparent;
             border: none;
             cursor: pointer;
-            opacity: 1;
+            opacity: 0;
             z-index: 10;
         "></button>
 
