@@ -65,7 +65,7 @@ function startSession() {
     if (username) {
         document.getElementById('content').innerHTML = `
          <div id="chatroom_selection" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: Arial, sans-serif;">
-            <h2>Select a Courtroom</h2>
+            <h2 class="entry-text">Select a Courtroom</h2>
             <ul id="chatroom_list" style="list-style: none; padding: 0;">
                 <li><button onclick="joinChatroom('Arkansas')" style="padding: 10px 20px; margin: 5px;">Arkansas</button></li>
                 <li><button onclick="joinChatroom('Texas')" style="padding: 10px 20px; margin: 5px;">Texas</button></li>
@@ -82,6 +82,7 @@ function joinChatroom(chatroom) {
     currentChatroom = chatroom;
 
     document.getElementById('content').innerHTML = `
+    <div id="courtroom-name" class="courtroom-name">${chatroom}</div>
     <div style="position: relative; width: 100vw; height: 100vh; overflow: hidden; background-image: url('fury-jury.png'); background-size: cover; background-position: center;">
   
         <!-- Invisible jury buttons -->
@@ -207,8 +208,7 @@ function joinChatroom(chatroom) {
             ">
             <textarea id="chat_text" oninput="auto_grow_text_area(this)" 
                 style="flex: 1; resize: none; height: 40px; padding: 10px; border-radius: 6px; border: none;"></textarea>
-            <button onclick="on_post_message()" 
-                style="padding: 10px 20px; border-radius: 6px; border: none; background: #0a9396; color: white; font-weight: bold;">Post</button>
+            <button onclick="on_post_message()" >Post</button>
             </div>
         </div>
     </div>
@@ -349,7 +349,18 @@ function main() {
     let chat_text = document.getElementById('chat_text');
     if (chat_text) {
         auto_grow_text_area(chat_text);
+
+        //keydown listener for Enter to send message
+        //new line if shift is pressed
+        chat_text.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault(); 
+                on_post_message();   
+            }
+        });
     }
+
+    chat_text.focus(); //automatically makes you be able to write stuff 
 }
 
 window.onload = () => {
