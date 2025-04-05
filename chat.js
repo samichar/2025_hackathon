@@ -86,72 +86,72 @@ function joinChatroom(chatroom) {
   
         <!-- Invisible jury buttons -->
         <!-- Button 1 -->
-        <button onclick="post_neutral_message(false, 115)" style="
+        <button onclick="post_neutral_message(false, this)" style="
             position: absolute;
-            top: 30px;
-            left: 115px;
-            width: 180px;
-            height: 320px;
-            background: rgba(255, 255, 255, 0.9);
+            top: 1.96%;
+            left: 7.5%;
+            width: 11.74%;
+            height: 42.87%;
+            background: rgba(255, 255, 255, 0.2);
             border: none;
             cursor: pointer;
-            opacity: 0;
+            opacity: 1;
             z-index: 10;
         "></button>
 
         <!-- Button 2 -->
-        <button onclick="post_neutral_message(false, 400)" style="
+        <button onclick="post_neutral_message(false, this)" style="
             position: absolute;
-            top: 30px;
-            left: 400px;
-            width: 180px;
-            height: 320px;
-            background: rgba(255, 255, 255, 0.9);
+            top: 1.96%;
+            left: 26%;
+            width: 11.74%;
+            height: 42.87%;
+            background: rgba(255, 255, 255, 0.2);
             border: none;
             cursor: pointer;
-            opacity: 0;
+            opacity: 1;
             z-index: 10;
         "></button>
 
         <!-- Button 3 -->
-        <button onclick="post_neutral_message(false, 675)" style="
+        <button onclick="post_neutral_message(false, this)" style="
             position: absolute;
-            top: 30px;
-            left: 675px;
-            width: 180px;
-            height: 320px;
-            background: transparent;
+            top: 1.96%;
+            left: 44%;
+            width: 11.74%;
+            height: 42.87%;
+            background: rgba(255, 255, 255, 0.2);
             border: none;
             cursor: pointer;
-            opacity: 0;
+            opacity: 1;
             z-index: 10;
         "></button>
 
         <!-- Button 4 (Furry) -->
-        <button onclick="post_neutral_message(true, 960)" style="
+        <button onclick="post_neutral_message(true, this)" style="
             position: absolute;
-            top: 0px;
-            left: 900px;
-            width: 300px;
-            height: 350px;
-            background: transparent;
+            top: 0%;
+            left: 58.5%;
+            width: 19.57%;
+            height: 44.83%;
+            background: rgba(255, 255, 255, 0.2);
             border: none;
             cursor: pointer;
-            opacity: 0;
+            opacity: 1;
             z-index: 10;
         "></button>
 
         <!-- Button 5 -->
-        <button onclick="post_neutral_message(false, 1235)" style="
+        <button onclick="post_neutral_message(false, this)" style="
             position: absolute;
-            top: 25px;
-            left: 1235px;
-            width: 180px;
-            height: 325px;
-            background: transparent;
+            top: 1.63%;
+            left: 80.25%;
+            width: 11.74%;
+            height: 42.2%;
+            background: rgba(255, 255, 255, 0.2);
             border: none;
             cursor: pointer;
-            opacity: 0;
+            opacity: 1;
             z-index: 10;
         "></button>
 
@@ -167,7 +167,7 @@ function joinChatroom(chatroom) {
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             font-family: 'Press Start 2P', Arial, sans-serif;
-            font-size: 16px;
+            font-size: 10px;
             text-align: center;
             z-index: 20;
             display: none; /* Initially hidden */
@@ -238,7 +238,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function post_neutral_message(furry, posLeft) {
+function post_neutral_message(furry, button) {
     // Get jury message
     let neutral_message = '';
     if (furry === true) {
@@ -248,6 +248,8 @@ function post_neutral_message(furry, posLeft) {
     }
 
     const neutral_message_container = document.getElementById('neutral_message_container');
+    const buttonRect = button.getBoundingClientRect();
+
 
     // Update the content of the neutral message container
     neutral_message_container.innerHTML = neutral_message;
@@ -259,8 +261,8 @@ function post_neutral_message(furry, posLeft) {
     const containerWidth = neutral_message_container.offsetWidth;
 
     // Position the neutral message container below the button and align its center with the button's center
-    neutral_message_container.style.top = `360px`; // 10px below the button
-    neutral_message_container.style.left = `${posLeft + 90 - containerWidth / 2}px`; // Center align 180 width, 
+    neutral_message_container.style.top = `${buttonRect.bottom + window.scrollY + 10}px`; // 10px below the button
+    neutral_message_container.style.left = `${buttonRect.left + window.scrollX + buttonRect.width / 2 - containerWidth / 2}px`; // Center align
 
     // Clear any existing timeout
     if (neutralMessageTimeout) {
