@@ -51,9 +51,9 @@ main {
 }
 
 .logo img {
-    max-height: px;
+    /* max-height: ; */
     height: auto;
-    width: auto;
+    width: 400px;
 }
 
 footer {
@@ -182,8 +182,9 @@ footer {
 
 .main-statement {
     font-family: 'Libre Baskerville', 'Open Sans', sans-serif;
-    text-shadow: 2px 2px rgba(199, 189, 189, 0.3);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
     text-align: center;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  */
 }
 
 .main-statement h1 {
@@ -196,11 +197,13 @@ footer {
 .main-container h1 {
     font-family: 'Libre Baskerville', 'Open Sans', sans-serif;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    font-size: 1.5rem;
 }
 
 .main-container h2 {
     font-family: 'Monseratt', sans-serif;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    font-size: 1rem;
 }
 
 .main-container > div {
@@ -235,7 +238,7 @@ footer {
     font-family: 'Libre Baskerville', 'Open Sans', sans-serif;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
     text-align: left;
-    color: red;
+    color: black;
     padding: 1rem;
 }
 
@@ -252,27 +255,37 @@ footer {
     padding: 1rem;
     gap: 1rem;
     flex-wrap: wrap;
+    /* margin-top: 20px; */
 }
 
 .contact-box {
     display: flex;
     align-items: center; 
-    gap: 1rem; 
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem; 
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
     /* border: 2px solid white; */
     /* border-radius: 10px;  */
     padding: 1rem;
     /* background-color: #333; */
     color: #fff; 
+    background-color: #03213e;
     width: 80%; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     align-items: center; 
+    font-size: 1rem;
+    overflow: hidden;
 }
 
 .about-main {
     font-family: 'Libre Baskerville', 'Open Sans', sans-serif;
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    /* text-shadow: 2px 2px rgba(0, 0, 0, 0.3); */
     text-align: left;
-    color: red;
+    color: black;
+    /* text-shadow: 2px 2px rgba(0, 0, 0, 0.3); */
 }
 
 .about-main h1 {
@@ -316,6 +329,7 @@ footer {
 
 #caseResults {
     margin-top: 20px;
+    margin-left: 20px;
 }
 
 .case-item {
@@ -324,6 +338,7 @@ footer {
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
+    color: black;
 }
 
 .case-item h3 {
