@@ -354,6 +354,7 @@ footer {
     font-family: 'Press Start 2P', sans-serif;
 }
 
+
 button {
     font-family: 'Press Start 2P', Arial, sans-serif;
     background-color: #ff5733; /* Bright orange */
@@ -371,3 +372,88 @@ button:hover {
     transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
+
+.bubble_left {
+	width: 530px;
+	color: #ffff;;
+	word-wrap: break-word;
+	white-space: normal;
+	padding: 10px;
+	border: solid #e4ac6a;
+	border-radius: 30px;
+	background-color: #814d4d;
+	padding-top: 0px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 10px;
+	margin-right: 400px;
+	margin-left: 150px;
+}
+.bubble_right {
+	width: 530px;
+	color: #ffff;
+	word-wrap: break-word;
+	white-space: normal;
+	padding: 10px;
+	border: solid #e4ac6a;
+	border-radius: 30px;
+	background-color: #03213e;
+	padding-top: 0px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 10px;
+	margin-left: 400px;
+	margin-right: 150px;
+}
+
+.entry-screen {
+    height: 100vh;
+    background-color: #03213e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .entry-title {
+    font-size: 48px;
+    color: #e4ac6a;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Press Start 2P', sans-serif;
+  }
+
+  .entry-text {
+    font-size: 25px;
+    color: #e4ac6a;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Press Start 2P', sans-serif;
+  }
+  
+  .courtroom-name {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    color: #e4ac6a;
+    font-size: 20px;
+    font-family: 'Press Start 2P', sans-serif;
+    z-index: 100;
+    background-color: rgba(3, 33, 62, 0.85);
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid #e4ac6a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  #username {
+    padding: 15px 20px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }

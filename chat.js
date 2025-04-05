@@ -65,7 +65,7 @@ function startSession() {
     if (username) {
         document.getElementById('content').innerHTML = `
          <div id="chatroom_selection" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: Arial, sans-serif;">
-            <h2>Select a Courtroom</h2>
+            <h2 class="entry-text">Select a Courtroom</h2>
             <ul id="chatroom_list" style="list-style: none; padding: 0;">
                 <li><button onclick="joinChatroom('Arkansas')" style="padding: 10px 20px; margin: 5px;">Arkansas</button></li>
                 <li><button onclick="joinChatroom('Texas')" style="padding: 10px 20px; margin: 5px;">Texas</button></li>
@@ -82,6 +82,7 @@ function joinChatroom(chatroom) {
     currentChatroom = chatroom;
 
     document.getElementById('content').innerHTML = `
+    <div id="courtroom-name" class="courtroom-name">${chatroom}</div>
     <div style="position: relative; width: 100vw; height: 100vh; overflow: hidden; background-image: url('fury-jury.png'); background-size: cover; background-position: center;">
   
         <!-- Invisible jury buttons -->
