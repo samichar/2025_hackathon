@@ -1,4 +1,49 @@
 let currentChatroom = ''; // Global variable to store the selected chatroom
+let juryText = {
+    '1': "Wow! Great point!",
+    '2': "I agree with you!",
+    '3': "I think you are right!",
+    '4': "I like your point of view!",
+    '5': "I'm not sure about that...",
+    '6': "I don't think so...",
+    '7': "I disagree with you!",
+    '8': "Something feels off about that...",
+    '9': "I wonder what's for lunch...",
+    '10': "I wonder what's for dinner...",
+    '11': "Did you finish the new season of Severance?",
+    '12': "Can you elaborate?",
+    '13': "Awesome point!",
+    '14': "Ohhhhhhhhhhh...",
+    '15': "Can you please speak up?",
+    '16': "I see.",
+    '17': "Interesting.",
+    '18': "Okay.",
+    '19': "Please be more specific.",
+    '20': "I'm not convinced.",
+    '21': "I don't know about that...",
+    '22': ".......",
+    '23': "*yawns*",
+    '24': "That was rude.",
+    '25': "YEAHHHH!!!!!!!",
+    '26': "What are you trying to say?",
+    '27': "I don't understand.",
+    '28': "Try again later.",
+    '29': "For real?",
+    '30': "Wow!"
+}
+let furryText = {
+    '1': "That's pawsome!",
+    '2': "Fur real?",
+    '3': "I'm feline good about that!",
+    '4': "Purrfectly said!",
+    '5': "That sounds wruff...",
+    '6': "I'm not kitten around!",
+    '7': "Can you pawlease speak up?",
+    '8': "You've got me by the scruff!",
+    '9': "That's a tail of a story!",
+    '10': "I'm all ears!",
+    '11': "That's a purrfect point!",
+}
 
 // Generate a unique identifier for each tab
 if (!localStorage.getItem('tab_id')) {
@@ -65,8 +110,14 @@ function scrub(text) {
     return text;
 }
 
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function post_neutral_message() {
-    const neutral_message = "This is a neutral message.";
+    neutral_message = juryText[getRandomInt(1, 30)];
 
     // Get the neutral message container
     const neutral_message_container = document.getElementById('neutral_message_container');
