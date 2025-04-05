@@ -80,7 +80,7 @@ function startSession() {
 
 function joinChatroom(chatroom) {
     currentChatroom = chatroom;
-
+    console.log('Joining chatroom:', chatroom);
     document.getElementById('content').innerHTML = `
     <div id="courtroom-name" class="courtroom-name">${chatroom}</div>
     <div style="position: relative; width: 100vw; height: 100vh; overflow: hidden; background-image: url('fury-jury.png'); background-size: cover; background-position: center;">
