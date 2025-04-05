@@ -208,8 +208,7 @@ function joinChatroom(chatroom) {
             ">
             <textarea id="chat_text" oninput="auto_grow_text_area(this)" 
                 style="flex: 1; resize: none; height: 40px; padding: 10px; border-radius: 6px; border: none;"></textarea>
-            <button onclick="on_post_message()" 
-                style="padding: 10px 20px; border-radius: 6px; border: none; background: #0a9396; color: white; font-weight: bold;">Post</button>
+            <button onclick="on_post_message()" >Post</button>
             </div>
         </div>
     </div>
