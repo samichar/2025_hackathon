@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 
 // Function to fetch cases
 export const fetchCases = async (search) => {
-  const apiUrl = `https://www.courtlistener.com/api/rest/v4/opinions/?search=${encodeURIComponent(search)}&ordering=-date_filed&page_size=5`;
+  const apiUrl = `https://www.courtlistener.com/api/rest/v4/search/?search=${encodeURIComponent(search)}&ordering=-date_filed&page_size=5`;
 
   console.log(`Constructed API URL: ${apiUrl}`); // Log the full API URL
 

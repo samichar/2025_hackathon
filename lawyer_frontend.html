@@ -48,14 +48,9 @@
             </div>
             <div class="cases">
                 <h1>Learn about specific court cases.</h1>
-                <h2>Search up anything! For example, 'divorce' or 'Arkansas'!</h2>
+                <h2>Click the button below to view recent court cases!</h2>
                 <div id="caseResults">
-                    <div class="search-container">
-                        <form id="searchForm">
-                            <input type="text" id="searchInput" placeholder="Search for cases..." name="search">
-                            <button type="submit">Go!</button>
-                        </form>
-                    </div>
+                    <button id="showCasesButton">Show Recent Court Cases</button>
                 </div>
             </div>
             <div class = "lawyers">
@@ -73,47 +68,10 @@
 </body>
 
 <script>
-    // Handle the search form submission
-    document.getElementById("searchForm").addEventListener("submit", async (event) => {
-        event.preventDefault(); // Prevent the form from reloading the page
-
-        const searchInput = document.getElementById("searchInput").value;
-        const caseResults = document.getElementById("caseResults");
-
-        // Clear previous results
-        caseResults.innerHTML = "<p>Loading...</p>";
-
-        try {
-            // Fetch data from the API
-            const response = await fetch(`http://localhost:3000/api/cases?search=${encodeURIComponent(searchInput)}`);
-            if (!response.ok) {
-                throw new Error(`Error: ${response.status}`);
-            }
-
-            const cases = await response.json();
-
-            // Display the results
-            if (cases.length === 0) {
-                caseResults.innerHTML = "<p>No cases found. Try a different search term.</p>";
-            } else {
-                caseResults.innerHTML = ""; // Clear the loading message
-                cases.forEach((caseItem) => {
-                    const caseDiv = document.createElement("div");
-                    caseDiv.classList.add("case-item");
-                    caseDiv.innerHTML = `
-                        <h3>${caseItem.title}</h3>
-                        <p>${caseItem.summary}</p>
-                        <p><strong>Date:</strong> ${caseItem.date}</p>
-                        <a href="${caseItem.link}" target="_blank">Read More</a>
-                        <hr />
-                    `;
-                    caseResults.appendChild(caseDiv);
-                });
-            }
-        } catch (error) {
-            console.error("Error fetching cases:", error);
-            caseResults.innerHTML = "<p>Error fetching cases. Please try again later.</p>";
-        }
+    // Handle the "Show Recent Court Cases" button click
+    document.getElementById("showCasesButton").addEventListener("click", () => {
+        // Redirect to the new page
+        window.location.href = "recent_cases.html";
     });
 </script>
 
