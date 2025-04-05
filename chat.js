@@ -163,7 +163,7 @@ function joinChatroom(chatroom) {
             transform: translate(0%, -125%);
             background: rgba(255, 255, 255, 0.9);
             color: #333;
-            padding: 20px 30px;
+            padding: 10px 15px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             font-family: 'Press Start 2P', Arial, sans-serif;
@@ -179,10 +179,10 @@ function joinChatroom(chatroom) {
             <!-- chat messages area at bottom -->
             <div id="chat_messages" style="
             position: absolute;
-            bottom: 60px;         
+            bottom: 0px;         
             left: 0;
             width: 100%;
-            max-height: 357px;     
+            max-height: 53.8%;     
             overflow-y: auto;
             display: flex;
             flex-direction: column-reverse;
