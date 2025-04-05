@@ -349,7 +349,18 @@ function main() {
     let chat_text = document.getElementById('chat_text');
     if (chat_text) {
         auto_grow_text_area(chat_text);
+
+        //keydown listener for Enter to send message
+        //new line if shift is pressed
+        chat_text.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault(); 
+                on_post_message();   
+            }
+        });
     }
+
+    chat_text.focus(); //automatically makes you be able to write stuff 
 }
 
 window.onload = () => {
