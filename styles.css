@@ -1,17 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-body {
+html, body {
     font-family: 'Libre Baskerville', 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
     color: #fff; 
     background-color: #e4ac6a;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Ensure the body is a column flex container */
+}
 
+.wrapper {
+    flex:1;
 }
 
 main {
-    margin-top: 100px;
+    margin-top: 6.25rem;;
     padding: 1rem;
 }
 
@@ -47,13 +53,13 @@ main {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 100px;
+    height: 6.25rem;;
 }
 
 .logo img {
     /* max-height: ; */
     height: auto;
-    width: 400px;
+    width: 25rem;
 }
 
 footer {
@@ -61,7 +67,7 @@ footer {
     background-color: #03213e;
     color: #e4ac6a;
     text-align: center;
-    padding: 10px;
+    padding: 0.625rem;;
     /* border-top: 4px solid #ff5733; */
 }
 
@@ -90,7 +96,7 @@ footer {
 .topnav a.active {
     background-color: #ffffff;
     color: #e4ac6a;
-    border-radius: 5px;
+    border-radius: 0.313rem;;
 }
 
 .search-container {
@@ -100,21 +106,21 @@ footer {
 
 .topnav input[type=text] {
     /* float: left; */
-    padding: 6px;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
+    padding: 0.375rem;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+    font-size: 1.063rem;
     border: none;
 }
 
 .topnav .search-container button {
     float: right;
-    padding: 6px 10px;
-    margin-top: 8px;
-    margin-right: 16px;
+    padding: 0.375rem 0.625rem;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
     background: #07477b;
     color: white;
-    font-size: 17px;
+    font-size: 1.603rem;
     border: none;
     cursor: pointer;
 }
@@ -125,16 +131,16 @@ footer {
 
 .callout {
     position: fixed;
-    bottom: 50px;
-    right: 20px;
-    max-width: 350px;
+    bottom: 3.125rem;
+    right: 1.25rem;
+    max-width: 21.875rem;
     background-color: #814d4d; 
     border: 4px solid #333; 
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border-radius: 0.938rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); 
     font-family: 'Press Start 2P', Arial, sans-serif; 
     color: #333;
-    padding: 15px;
+    padding: 0.938rem;
     animation: bounce 6s infinite; 
     text-align: center;
 }
@@ -142,7 +148,7 @@ footer {
 .callout-header {
     font-size: .75rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
     color: white;
     /* text-shadow: 1px 1px #fff; */
     font-family: 'Press Start 2P', Arial, sans-serif; 
@@ -182,7 +188,7 @@ footer {
 
 .main-statement {
     font-family: 'Libre Baskerville', 'Open Sans', sans-serif;
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0.125rem 0.125rem rgba(0, 0, 0, 0.3);
     text-align: center;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  */
 }
@@ -191,32 +197,32 @@ footer {
     font-size: 2rem;
     color: white;
     text-align: center;
-    padding: 0px;
+    padding: 0rem;
 }
 
 .main-container h1 {
     font-family: 'Libre Baskerville', 'Open Sans', sans-serif;
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0.125rem 0.125rem rgba(0, 0, 0, 0.3);
     font-size: 1.5rem;
 }
 
 .main-container h2 {
     font-family: 'Monseratt', sans-serif;
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0.125rem 0.125rem rgba(0, 0, 0, 0.3);
     font-size: 1rem;
 }
 
 .main-container > div {
     display: flex;
     flex: 1;
-    min-width: 300px;
-    max-width: 400px;
-    height: 300px;
+    min-width: 18.75rem;
+    max-width: 25rem;
+    height: 18.75rem;
     padding: 1rem;
     /* border-radius: 10px; */
     /* border: 4px solid #ffcc00; */
     background-color: #03213e;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5); 
     text-align: center;
     color: #e4ac6a;
     display: flex;
@@ -229,14 +235,14 @@ footer {
 }
 
 .scale-image, .gavel-image, .lawyer-image {
-    width: 80px;
+    width: 5rem;
     padding: 0;
     margin-bottom: 0;
 }
 
 .contact-main {
     font-family: 'Libre Baskerville', 'Open Sans', sans-serif;
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0.125rem 0.125rem rgba(0, 0, 0, 0.3);
     text-align: left;
     color: black;
     padding: 1rem;
@@ -251,7 +257,7 @@ footer {
 .contact-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     padding: 1rem;
     gap: 1rem;
     flex-wrap: wrap;
@@ -265,8 +271,8 @@ footer {
     justify-content: center;
     gap: 0.5rem; 
     flex: 1;
-    min-width: 250px;
-    max-width: 300px;
+    min-width: 15.625rem;
+    max-width: 18.75rem;
     /* border: 2px solid white; */
     /* border-radius: 10px;  */
     padding: 1rem;
@@ -274,7 +280,7 @@ footer {
     color: #fff; 
     background-color: #03213e;
     width: 80%; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); 
     align-items: center; 
     font-size: 1rem;
     overflow: hidden;
@@ -296,57 +302,57 @@ footer {
 
 .rules {
     float: left;
-    border: 1px solid #07477b;
-    margin: 10px;
-    padding: 10px;
+    border: 0.063rem solid #07477b;
+    margin: 0.625rem;
+    padding: 0.625rem;
 }
 
 .rules h1 {
-    font-size: 30px;
+    font-size: 1.875rem;
 }
 
 .cases {
     float: center;
-    border: 1px solid #07477b;
-    margin: 10px;
-    padding: 10px;
+    border: 0.063rem solid #07477b;
+    margin: 0.625rem;
+    padding: 0.625rem;
 }
 
 .cases h1 {
-    font-size: 30px;
+    font-size: 1.875rem;;
 }
 
 .lawyers {
     float: right;
-    border: 1px solid #07477b;
-    margin: 10px;
-    padding: 10px;
+    border: 0.063rem solid #07477b;
+    margin: 0.625rem;
+    padding: 0.625rem;
 }
 
 .lawyers h1 {
-    font-size: 30px;
+    font-size: 1.875rem;
 }
 
 #caseResults {
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 1.25rem;
+    margin-left: 1.25rem;
 }
 
 .case-item {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    margin-bottom: 1.25rem;;
+    padding: 0.625rem;
+    border: 0.063rem solid #ddd;
+    border-radius: 0.313rem;
     background-color: #f9f9f9;
     color: black;
 }
 
 .case-item h3 {
-    margin: 0 0 10px;
+    margin: 0 0 0.625rem;
 }
 
 .case-item p {
-    margin: 5px 0;
+    margin: 0.313rem 0;
 }
 
 .case-item a {
