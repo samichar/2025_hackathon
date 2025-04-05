@@ -343,6 +343,17 @@ footer {
     text-decoration: underline;
 }
 
+.username {
+    font-size: 16px; /* Adjust the size for the username */
+    font-weight: bold;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+.message_text {
+    font-size: 12px; /* Adjust the size for the message text */
+    font-family: 'Press Start 2P', sans-serif;
+}
+
 button {
     font-family: 'Press Start 2P', Arial, sans-serif;
     background-color: #ff5733; /* Bright orange */

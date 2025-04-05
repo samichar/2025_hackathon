@@ -14,6 +14,7 @@ const some_mime_types = {
     '.png': 'image/png',
     '.svg': 'image/svg+xml',
     '.zip': 'application/zip',
+    '.css': 'text/css',
 };
 
 let messages = []; // Array to store all messages

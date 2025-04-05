@@ -64,7 +64,7 @@ function startSession() {
     username = document.getElementById('username').value;
     if (username) {
         document.getElementById('content').innerHTML = `
-         <div id="chatroom_selection" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: Arial, sans-serif;">
+         <div id="chatroom_selection" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: 'Press Start 2P', Arial, sans-serif;">
             <h2>Select a Courtroom</h2>
             <ul id="chatroom_list" style="list-style: none; padding: 0;">
                 <li><button onclick="joinChatroom('Arkansas')" style="padding: 10px 20px; margin: 5px;">Arkansas</button></li>
@@ -92,7 +92,7 @@ function joinChatroom(chatroom) {
             left: 115px;
             width: 180px;
             height: 320px;
-            background: transparent;
+            background: rgba(255, 255, 255, 0.9);
             border: none;
             cursor: pointer;
             opacity: 0;
@@ -106,7 +106,7 @@ function joinChatroom(chatroom) {
             left: 400px;
             width: 180px;
             height: 320px;
-            background: transparent;
+            background: rgba(255, 255, 255, 0.9);
             border: none;
             cursor: pointer;
             opacity: 0;
@@ -166,7 +166,7 @@ function joinChatroom(chatroom) {
             padding: 20px 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            font-family: Arial, sans-serif;
+            font-family: 'Press Start 2P', Arial, sans-serif;
             font-size: 16px;
             text-align: center;
             z-index: 20;
@@ -283,9 +283,9 @@ function post_message(is_me, text, username) {
     s.push('<div class="');
     s.push(is_me ? 'bubble_right' : 'bubble_left');
     s.push('">');
-    s.push(`<span class="username" style="font-weight: bold; font-family: Helvetica, sans-serif;">${username}</span>`); // Username section
+    s.push(`<span class="username">${username}</span>`); // Username section
     s.push(`<br>`);
-    s.push(`<span class="message_text" style="font-family: 'Monaco', monospace;">${text}</span>`); // Message text section
+    s.push(`<span class="message_text">${text}</span>`); // Message text section
     s.push(`</div>`);
     cell.innerHTML = s.join('');
 
