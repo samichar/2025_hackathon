@@ -6,7 +6,6 @@ This is a simple Express backend that fetches legal case data from the CourtList
 ## 🚀 How to Run
 
 ### 1. Clone the repo
-```bash
 git clone https://github.com/yourusername/legal-api.git
 cd legal-api
 
