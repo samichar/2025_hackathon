@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <style>
+body{
+	background: #202020;
+	color: #f0f0f0;
+	border: 0;
+	margin: 0;
+}
+body, textarea, input, button {
+	font-family: verdana, tahoma, geneva, sans-serif;
+	font-size:24px;
+}
+textarea {
+	box-sizing: border-box;
+	width: 100%;
+}
+@media (max-width: 990px) {
+	body, textarea, input, button {
+    	font-size:48px;
+    }
+	td {
+		height: 72px;
+	}
+}
+.bubble_left {
+	padding: 10px;
+	border: solid #705060;
+	border-radius: 30px;
+	background-color: #503040;
+	padding-top: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	margin-right: 400px;
+	margin-left: 150px;
+}
+.bubble_right {
+	padding: 10px;
+	border: solid #507060;
+	border-radius: 30px;
+	background-color: #305040;
+	padding-top: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	margin-left: 400px;
+	margin-right: 150px;
+}
+code {
+	white-space: break-spaces;
+	font-family: verdana, tahoma, geneva, sans-serif;
+}
+        </style>
+    </head>
+    <body>
+		<body>
+			<div id="content">
+				<input type="text" id="username" placeholder="Enter your name">
+				<button onclick="startSession()">Start</button>
+			</div>
+			<script src="chat.js"></script>
+    </body>
+</html>
