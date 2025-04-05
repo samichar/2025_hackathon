@@ -15,18 +15,14 @@
                 <a class="active" href="lawyer_frontend.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
-                <div class="search-container">
-                    <form id="searchForm">
-                        <input type="text" id="searchInput" placeholder="Search for cases..." name="search">
-                        <button type="submit">Search</button>
-                    </form>
-                </div>
             </div>
         </div>
 
     </header>
     <main>
-        <h1>Your main source for everything lawyer related.</h1>
+        <div class = "header-statement">
+            <h1>Your main source for everything lawyer related.</h1>
+        </div>
         <div class = "main-container">
             <div class = "rules">
                 <h1>Learn about the rules of the courtroom.</h1>
@@ -36,8 +32,14 @@
             </div>
             <div class="cases">
                 <h1>Learn about specific court cases.</h1>
+                <h2>Search up anything! For example, 'divorce' or 'Arkansas'!</h2>
                 <div id="caseResults">
-                    <p>Search for cases using the search bar above.</p>
+                    <div class="search-container">
+                        <form id="searchForm">
+                            <input type="text" id="searchInput" placeholder="Search for cases..." name="search">
+                            <button type="submit">Go!</button>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class = "lawyers">
