@@ -1,17 +1,7 @@
-/* body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;;
-    background-color: #ffffff;
-    color: #333;
-} */
-
 body {
     font-family: 'Press Start 2P', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    /* background: url('./images/pixel-background.png') repeat;
-    /* background-size: cover; */
     color: #fff; 
 }
 
@@ -20,9 +10,19 @@ main {
     padding: 1rem;
 }
 
+/* @font-face {
+    font-family: 'Roman Caps';
+    src: url('/font/roman/Roman_SD.ttf"') format ('truetype');
+}
+
+@font-face {
+    font-family: 'Derivia';
+    src: url('/font/derivia/Derivia-Regular.otf"') format ('opentype');
+} */
+
 @font-face {
     font-family: 'Press Start 2P';
-    src: url('/press-start-2p-font/PressStart2P-vaV7.ttf') format('truetype');
+    src: url('/font/press-start-2p-font/PressStart2P-vaV7.ttf"') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -58,7 +58,7 @@ main {
 } */
 
 footer {
-    font-family: 'Press Start 2P';
+    font: 'Roman Caps', sans-serif;
     background-color: #333;
     color: #ffcc00;
     text-align: center;
@@ -71,7 +71,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 1rem;
-    font-family: 'Press Start 2P';
+    font-family: 'Roman Caps';
 }
 
 .topnav a {
@@ -146,6 +146,7 @@ footer {
     margin-bottom: 10px;
     color: #07477b;
     text-shadow: 1px 1px #fff;
+    font-family: 'Press Start 2P', Arial, sans-serif; /* Pixelated font */
 }
 
 .callout-container {

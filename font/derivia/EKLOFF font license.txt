@@ -1,0 +1,26 @@
+
+LICENSE AGREEMENT
+for fonts by Ekloff
+ 
+# What is allowed?
+ 
+* freely use for personal, non-profit projects
+* use this font for commercial work (such as logo design, posters, or prints)
+* embed in PDFs and non-editable documents
+* use with @font-face
+* install on up to 5 CPUs for use by a single user
+ 
+ 
+# What is forbidden?
+ 
+The font (or derivative work) cannot be sold or distributed by itself or as part of a font collection or font-related service without permission. You may provide the font to a printer or related production service solely to carry out your project only, and adhering to this license.
+ 
+# Want more flexibility?
+ 
+If embedding this font into software or hardware products (such as apps or ebooks), a donation of $10 or more is requested (via PayPal). You can contact Joseph Ekloff for further information at jseklo@gmail.com or the contact form at http://ekloff.com
+ 
+ 
+# Copyright
+ 
+This font is the intellectual property of Joseph Ekloff.
+Ekloff is not liable for any damage resulting from the use of this font.
