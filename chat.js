@@ -1,4 +1,5 @@
 let currentChatroom = ''; // Global variable to store the selected chatroom
+let neutralMessageTimeout;
 let juryText = {
     '1': "Wow! Great point!",
     '2': "I agree with you!",
@@ -83,52 +84,140 @@ function joinChatroom(chatroom) {
     document.getElementById('content').innerHTML = `
     <div style="position: relative; width: 100vw; height: 100vh; overflow: hidden; background-image: url('fury-jury.png'); background-size: cover; background-position: center;">
   
-      <!-- chat overlay container -->
+        <!-- Invisible jury buttons -->
+        <!-- Button 1 -->
+        <button onclick="post_neutral_message(false, 115)" style="
+            position: absolute;
+            top: 30px;
+            left: 115px;
+            width: 180px;
+            height: 320px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            z-index: 10;
+        "></button>
+
+        <!-- Button 2 -->
+        <button onclick="post_neutral_message(false, 400)" style="
+            position: absolute;
+            top: 30px;
+            left: 400px;
+            width: 180px;
+            height: 320px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            z-index: 10;
+        "></button>
+
+        <!-- Button 3 -->
+        <button onclick="post_neutral_message(false, 675)" style="
+            position: absolute;
+            top: 30px;
+            left: 675px;
+            width: 180px;
+            height: 320px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            z-index: 10;
+        "></button>
+
+        <!-- Button 4 (Furry) -->
+        <button onclick="post_neutral_message(true, 960)" style="
+            position: absolute;
+            top: 0px;
+            left: 900px;
+            width: 300px;
+            height: 350px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            z-index: 10;
+        "></button>
+
+        <!-- Button 5 -->
+        <button onclick="post_neutral_message(false, 1235)" style="
+            position: absolute;
+            top: 25px;
+            left: 1235px;
+            width: 180px;
+            height: 325px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            z-index: 10;
+        "></button>
+
+        <!-- Neutral message container -->
+        <div id="neutral_message_container" style="
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(0%, -125%);
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            text-align: center;
+            z-index: 20;
+            display: none; /* Initially hidden */
+        "></div>
+  
+        <!-- chat overlay container -->
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 20px; box-sizing: border-box; z-index: 2;">
   
-    <!-- chat messages area at bottom -->
-        <div id="chat_messages" style="
-        position: absolute;
-        bottom: 60px;         
-        left: 0;
-        width: 100%;
-        max-height: 357px;     
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-        padding: 10px;
-        box-sizing: border-box;
-        ">
-        <table id="chats" style="width: 100%; max-width: 700px;"></table>
+            <!-- chat messages area at bottom -->
+            <div id="chat_messages" style="
+            position: absolute;
+            bottom: 60px;         
+            left: 0;
+            width: 100%;
+            max-height: 357px;     
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+            ">
+            <table id="chats" style="width: 100%; max-width: 700px;"></table>
+            </div>
+  
+            <!-- chat input bar at bottom -->
+            <div id="chat_input" style="
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(50, 50, 50, 0.8);
+            padding: 10px;
+            display: flex;
+            gap: 10px;
+            box-sizing: border-box;
+            ">
+            <textarea id="chat_text" oninput="auto_grow_text_area(this)" 
+                style="flex: 1; resize: none; height: 40px; padding: 10px; border-radius: 6px; border: none;"></textarea>
+            <button onclick="on_post_message()" 
+                style="padding: 10px 20px; border-radius: 6px; border: none; background: #0a9396; color: white; font-weight: bold;">Post</button>
+            </div>
         </div>
-  
-    <!-- chat input bar at bottom -->
-        <div id="chat_input" style="
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: rgba(50, 50, 50, 0.8);
-        padding: 10px;
-        display: flex;
-        gap: 10px;
-        box-sizing: border-box;
-        ">
-      <textarea id="chat_text" oninput="auto_grow_text_area(this)" 
-        style="flex: 1; resize: none; height: 40px; padding: 10px; border-radius: 6px; border: none;"></textarea>
-      <button onclick="on_post_message()" 
-        style="padding: 10px 20px; border-radius: 6px; border: none; background: #0a9396; color: white; font-weight: bold;">Post</button>
     </div>
-      </div>
-  
-    </div>
-  `;
+    `;
 
-  setTimeout(() => {
-    fetch_messages();
-    main();
-  }, 50);
+    setTimeout(() => {
+        fetch_messages();
+        main();
+    }, 50);
 }
 
 function scrub(text) {
@@ -149,20 +238,37 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function post_neutral_message() {
-    neutral_message = juryText[getRandomInt(1, 30)];
+function post_neutral_message(furry, posLeft) {
+    // Get jury message
+    let neutral_message = '';
+    if (furry === true) {
+        neutral_message = furryText[getRandomInt(1, 11)];
+    } else {
+        neutral_message = juryText[getRandomInt(1, 30)];
+    }
 
-    // Get the neutral message container
     const neutral_message_container = document.getElementById('neutral_message_container');
 
     // Update the content of the neutral message container
     neutral_message_container.innerHTML = neutral_message;
 
-    // Show the container
+    // Temporarily make the container visible to calculate its width
     neutral_message_container.style.display = 'block';
 
-    // Automatically hide the message after 5 seconds
-    setTimeout(() => {
+    // Recalculate the container's width after updating its content
+    const containerWidth = neutral_message_container.offsetWidth;
+
+    // Position the neutral message container below the button and align its center with the button's center
+    neutral_message_container.style.top = `360px`; // 10px below the button
+    neutral_message_container.style.left = `${posLeft + 90 - containerWidth / 2}px`; // Center align 180 width, 
+
+    // Clear any existing timeout
+    if (neutralMessageTimeout) {
+        clearTimeout(neutralMessageTimeout);
+    }
+
+    // Set a new timeout to hide the message after 10 seconds
+    neutralMessageTimeout = setTimeout(() => {
         neutral_message_container.style.display = 'none';
     }, 10000);
 }
