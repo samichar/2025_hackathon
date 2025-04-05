@@ -78,24 +78,57 @@ function startSession() {
 }
 
 function joinChatroom(chatroom) {
-    currentChatroom = chatroom; // Store the selected chatroom
+    currentChatroom = chatroom;
+
     document.getElementById('content').innerHTML = `
-         <div id="chat_container" style="display: flex; flex-direction: column; height: 100vh;">
-            <div id="chat_header" style="position: fixed; top: 0; right: 0; padding: 10px; z-index: 10;">
-                <span style="font-weight: bold; font-family: Arial, sans-serif;">Chatroom: ${chatroom}</span>
-                <button id="neutral_message_button" onclick="post_neutral_message()" style="background: #808080; color: white; border: none; padding: 10px; cursor: pointer; margin-left: 10px;">Neutral Message</button>
-            </div>
-            <div id="neutral_message_container" style="position: fixed; top: 50px; left: 50%; transform: translateX(-50%); background: #f1f1f1; color: #333; padding: 10px 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); font-family: Arial, sans-serif; font-size: 14px; text-align: center; z-index: 9; display: none;">
-                <!-- Neutral message will appear here -->
-            </div>
-            <div id="chat_messages" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column-reverse; padding: 10px 10px 80px 10px; box-sizing: border-box; margin-top: 50px;">
-                <table id="chats" width="100%"></table>
-            </div>
-            <div id="chat_input" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #808080; display: flex; padding: 10px; box-sizing: border-box;">
-                <textarea id="chat_text" oninput="auto_grow_text_area(this)" style="flex: 1; box-sizing: border-box; resize: none;"></textarea>
-                <button onclick="on_post_message()" style="margin-left: 10px;">Post</button>
-            </div>
-         </div>`;
+    <div style="position: relative; width: 100vw; height: 100vh; overflow: hidden; background-image: url('fury-jury.png'); background-size: cover; background-position: center;">
+  
+      <!-- chat overlay container -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 20px; box-sizing: border-box; z-index: 2;">
+  
+    <!-- chat messages area at bottom -->
+        <div id="chat_messages" style="
+        position: absolute;
+        bottom: 60px;         
+        left: 0;
+        width: 100%;
+        max-height: 357px;     
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+        ">
+        <table id="chats" style="width: 100%; max-width: 700px;"></table>
+        </div>
+  
+    <!-- chat input bar at bottom -->
+        <div id="chat_input" style="
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(50, 50, 50, 0.8);
+        padding: 10px;
+        display: flex;
+        gap: 10px;
+        box-sizing: border-box;
+        ">
+      <textarea id="chat_text" oninput="auto_grow_text_area(this)" 
+        style="flex: 1; resize: none; height: 40px; padding: 10px; border-radius: 6px; border: none;"></textarea>
+      <button onclick="on_post_message()" 
+        style="padding: 10px 20px; border-radius: 6px; border: none; background: #0a9396; color: white; font-weight: bold;">Post</button>
+    </div>
+      </div>
+  
+    </div>
+  `;
+
+  setTimeout(() => {
+    fetch_messages();
+    main();
+  }, 50);
 }
 
 function scrub(text) {
@@ -210,8 +243,6 @@ function main() {
         auto_grow_text_area(chat_text);
     }
 }
-
-setInterval(fetch_messages, 500);
 
 window.onload = () => {
     main();
